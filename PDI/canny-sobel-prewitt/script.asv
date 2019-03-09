@@ -1,0 +1,32 @@
+% captura nome do arquivo e o diretorio que ele se encontra ao selecionar
+[nome diretorio] = uigetfile('*.*', 'Abrir');
+
+% Constroi o endereço do local do arquivo
+local = fullfile(diretorio, nome);
+
+% ler o arquivo no local escolhido
+n = imread(local);
+
+% Converte a imagem de RGB para escala de cinza
+I = rgb2gray(n);
+
+subplot(2,2,1); imshow(n); title ('Img Entrada');
+
+% comando edge para aplicar o filtro canny
+imgcanny = edge(I, 'canny');
+subplot(2,2,2); imshow(imgcanny); title ('Filtro Canny');
+
+
+% comando edge para aplicar o filtro sobel
+imgsobel = edge(I, 'sobel');
+subplot(2,2,3); imshow(imgsobel); title ('Filtro Sobel');
+
+
+% comando edge para aplicar o filtro sobel
+imgprewitt = edge(I, 'prewitt');
+subplot(2,2,4); imshow(imgprewitt); title ('Filtro ');
+
+
+subplot(2,3,5); imhist(I); title ('Histograma');
+subplot(2,3,3); imshow(Eq); title ('Imag Equalizada');
+subplot(2,3,6); imhist(Eq); title ('Histograma');
