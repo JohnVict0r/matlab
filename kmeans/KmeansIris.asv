@@ -1,0 +1,12 @@
+x = load ('iris.dat');
+
+[idx, c, sumd, d] = kmeans(x,3);
+
+plot(x(idx==1,1), x(idx==1,2), '.r', 'MarkesSize', 12);
+
+hold on; plot(x(idx==2,1), x(idx==2,2), x(idx==2,3), 'MarkesSize', 12);
+
+hold on; plot(x(idx==3,1), x(idx==3,2), x(idx==3,3), 'MarkesSize', 12);
+
+plot(c(:,1), c(:,2), 'kx', 'MarkesSize', 12, 'MarkesSize', 12);
+);
